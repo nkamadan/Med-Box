@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:background="@drawable/bg"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            >
+
+            <ImageView
+                android:id="@+id/logosign"
+                android:layout_width="183dp"
+                android:layout_height="169dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="90dp"
+                android:layout_marginBottom="20dp"
+                android:text="Registration Page"
+                android:background="@drawable/logo"
+                android:textSize="35dp" />
+
+
+            <EditText
+                android:id="@+id/usersign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView1"
+                android:layout_alignLeft="@+id/textView1"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint="Username"
+                android:textColorHint="@color/cardview_dark_background" />
+
+            <EditText
+                android:id="@+id/passwordsign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:password="true"
+                android:textColorHint="@color/cardview_dark_background" />
+
+
+            <Button
+                android:id="@+id/register"
+                android:layout_width="134dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:onClick="loginButton"
+                android:text="Register" />
+
+            <TextView
+                android:id="@+id/donthaveaccount"
+                android:layout_width="213dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100dp"
+                android:text="Don't have an account? Sign Up!" />
+
+            <Button
+                android:id="@+id/signup"
+                android:layout_width="134dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="3dp"
+                android:onClick="signButton"
+                android:text="Sign Up" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

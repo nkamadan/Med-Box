@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/home"
+        android:icon="@drawable/medicine"
+        android:title="Medicines"
+        />
+
+    <item android:id="@+id/trend"
+        android:icon="@drawable/heart"
+        android:title="Add Medicine"
+        />
+
+    <item android:id="@+id/account"
+        android:icon="@drawable/bluetooth"
+        android:title="Bluetooth Connection"
+        />
+
+</menu>
