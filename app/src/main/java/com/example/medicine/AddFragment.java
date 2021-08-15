@@ -1,10 +1,13 @@
 package com.example.medicine;
 
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,6 +47,7 @@ public class AddFragment extends Fragment implements View.OnClickListener{
     RadioGroup radioGroup;
     RadioButton ac;
     RadioButton tok;
+    TimePicker picker;
     String username="";
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -91,7 +95,7 @@ public class AddFragment extends Fragment implements View.OnClickListener{
         tok = v.findViewById(R.id.radio_tok);
 
 
-        TimePicker picker=(TimePicker) v.findViewById(R.id.datePicker1);
+        picker=(TimePicker) v.findViewById(R.id.datePicker1);
         picker.setIs24HourView(true);
 
         username = getArguments().getString("username");
@@ -119,6 +123,7 @@ public class AddFragment extends Fragment implements View.OnClickListener{
         return v;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onClick(View v) {
             Medicine newlyAdded = new Medicine();
@@ -131,12 +136,16 @@ public class AddFragment extends Fragment implements View.OnClickListener{
             newlyAdded.color = medicineColor.getText().toString();
             newlyAdded.kapsul = kapsulNumber.getText().toString();
             newlyAdded.kacdefa = kacdefa.getText().toString();
+            newlyAdded.hour = picker.getHour();
+            newlyAdded.minute = picker.getMinute();
+            newlyAdded.alarm_durum = 1; //Firstly, it is added as active
             reference.child(username).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 count[0] = dataSnapshot.getChildrenCount();
+                newlyAdded.alarm_id = count[0];
                 Log.println(Log.ERROR, "onclicklistener", String.valueOf(count[0]));
-                reference.child(username).child("med" + count[0]).setValue(newlyAdded);
+                reference.child(username).child(String.valueOf(count[0])).setValue(newlyAdded);
             }
 
                 @Override
@@ -146,6 +155,7 @@ public class AddFragment extends Fragment implements View.OnClickListener{
             });
 
             //reference.child(username).child("med" + count[0]).setValue(newlyAdded);
+
     }
 
 //    public void onRadioButtonClicked(View view) {
@@ -164,6 +174,23 @@ public class AddFragment extends Fragment implements View.OnClickListener{
 //                    break;
 //        }
 //    }
+
+
+
+//void setAlarm(int hour, int min, int alarmID){
+//
+//    Alarm alarm = new Alarm(
+//            alarmID,
+//            hour,
+//            min,
+//            title.getText().toString(),
+//            true,
+//    );
+//
+//    createAlarmViewModel.insert(alarm);
+//
+//    alarm.schedule(getContext());
+//}
 
 
 

@@ -14,8 +14,8 @@
         android:paddingRight="24dp">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="72dp"
+            android:layout_width="349dp"
+            android:layout_height="54dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="24dp"
             android:src="@drawable/logo" />
@@ -80,8 +80,8 @@
 
         <TimePicker
             android:id="@+id/datePicker1"
-            android:layout_width="363dp"
-            android:layout_height="137dp"
+            android:layout_width="361dp"
+            android:layout_height="88dp"
             android:timePickerMode="spinner" />
 
 
@@ -91,7 +91,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="24dp"
-            android:onClick="btn_click"
+            android:onClick="onClick"
             android:padding="12dp"
             android:text="Add Medicine" />
 

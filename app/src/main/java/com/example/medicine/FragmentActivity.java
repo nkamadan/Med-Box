@@ -29,7 +29,7 @@ public class FragmentActivity extends AppCompatActivity {
         bundle2.putString("username", username);
         // set Fragmentclass Arguments
         Log.println(Log.ERROR, "Fragment Activity1 : ", username);
-        MedicinesFragment fragobj3 = new MedicinesFragment();
+        MedFragment fragobj3 = new MedFragment();
         fragobj3.setArguments(bundle2);
         openFragment(fragobj3);
 
@@ -45,7 +45,8 @@ public class FragmentActivity extends AppCompatActivity {
                         bundle1.putString("username", username);
                         // set Fragmentclass Arguments
                         Log.println(Log.ERROR, "Fragment Activity2 : ", username);
-                        MedicinesFragment fragobj1 = new MedicinesFragment();
+                        //MedicinesFragment fragobj1 = new MedicinesFragment();
+                        MedFragment fragobj1 = new MedFragment();
                         fragobj1.setArguments(bundle1);
                         openFragment(fragobj1);
                         return true;
